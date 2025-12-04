@@ -63,29 +63,25 @@ h2 {
 </style>
 
 <script>
-// Status messages to keep user waiting longer
+// Smooth user-friendly messages
 let messages = [
-    "Connecting to secure server…",
-    "Verifying file integrity…",
-    "Building download session…",
-    "Contacting global CDN…",
-    "Fetching high-speed route…",
-    "Almost done…"
+    "Initializing download…",
+    "Contacting server…",
+    "Preparing secure connection…",
+    "Finalizing setup…"
 ];
 
 let msgIndex = 0;
 
-// Cycle messages
 function cycleMessages() {
     let status = document.getElementById("status");
     status.textContent = messages[msgIndex];
     msgIndex++;
     if (msgIndex < messages.length) {
-        setTimeout(cycleMessages, 1600);
+        setTimeout(cycleMessages, 1500);
     }
 }
 
-// Progress bar animation (10 seconds)
 function animateProgress() {
     let bar = document.getElementById("bar");
     let width = 0;
@@ -93,28 +89,24 @@ function animateProgress() {
         if (width >= 100) {
             clearInterval(interval);
         } else {
-            width += 1.1;
+            width += 1.8;
             bar.style.width = width + "%";
         }
-    }, 110);
+    }, 90);
 }
 
-// *** FIRST Monetag call on page load ***
+// Only ONE monetag call for balanced ads
 window.onload = function() {
     window.open("https://otieu.com/4/10259996", "_self");
     animateProgress();
     cycleMessages();
 };
 
-// *** SECOND Monetag trigger after 4 seconds (safe, allowed) ***
-setTimeout(function(){
-    window.open("https://otieu.com/4/10259996", "_self");
-}, 4000);
-
-// Final redirect after 11 seconds
+// redirect after 7 seconds
 setTimeout(function(){
     window.location.href = "https://www.mediafire.com/file/qdnaeuuqjii8k3i/Android_studio_new.zip/file";
-}, 11000);
+}, 7000);
+
 </script>
 
 </head>
@@ -122,7 +114,6 @@ setTimeout(function(){
 
 <div class="container">
     <h2>Preparing your download…</h2>
-
     <div class="loader"></div>
 
     <div class="progress-box">
@@ -130,7 +121,7 @@ setTimeout(function(){
     </div>
 
     <p id="status" class="status">Initializing…</p>
-    <p style="color:#777; margin-top:25px;">Please wait, do not close this window.</p>
+    <p style="color:#777; margin-top:25px;">Please wait…</p>
 </div>
 
 </body>
