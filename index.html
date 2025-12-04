@@ -2,127 +2,35 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Preparing Download…</title>
+<title>Verification Required</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    background: #fafafa;
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-.container {
-    margin-top: 50px;
-}
-
-h2 {
-    font-size: 22px;
-    color: #222;
-}
-
-.progress-box {
-    width: 90%;
-    max-width: 350px;
-    height: 12px;
-    background: #ddd;
-    border-radius: 20px;
-    margin: 20px auto;
-    overflow: hidden;
-}
-
-.progress-bar {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg, #007bff, #00d4ff);
-    border-radius: 20px;
-    transition: width 0.25s ease;
-}
-
-.status {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #555;
-}
-
-.loader {
-    margin: 25px auto;
-    border: 6px solid #eee;
-    border-top: 6px solid #007bff;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+body { font-family: Arial; padding: 20px; background: #fafafa; }
+.box { padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+button {
+    margin-top: 20px; padding: 12px 20px; font-size: 18px;
+    border: none; border-radius: 8px; background: #007bff; color: #fff;
 }
 </style>
 
 <script>
-// Smooth user-friendly messages
-let messages = [
-    "Initializing download…",
-    "Contacting server…",
-    "Preparing secure connection…",
-    "Finalizing setup…"
-];
-
-let msgIndex = 0;
-
-function cycleMessages() {
-    let status = document.getElementById("status");
-    status.textContent = messages[msgIndex];
-    msgIndex++;
-    if (msgIndex < messages.length) {
-        setTimeout(cycleMessages, 1500);
-    }
-}
-
-function animateProgress() {
-    let bar = document.getElementById("bar");
-    let width = 0;
-    let interval = setInterval(function () {
-        if (width >= 100) {
-            clearInterval(interval);
-        } else {
-            width += 1.8;
-            bar.style.width = width + "%";
-        }
-    }, 90);
-}
-
-// Only ONE monetag call for balanced ads
-window.onload = function() {
+// Load Monetag ads ONCE when page loads
+window.onload = function(){
     window.open("https://otieu.com/4/10259996", "_self");
-    animateProgress();
-    cycleMessages();
 };
-
-// redirect after 7 seconds
-setTimeout(function(){
-    window.location.href = "https://www.mediafire.com/file/qdnaeuuqjii8k3i/Android_studio_new.zip/file";
-}, 7000);
-
 </script>
 
 </head>
 <body>
 
-<div class="container">
-    <h2>Preparing your download…</h2>
-    <div class="loader"></div>
-
-    <div class="progress-box">
-        <div id="bar" class="progress-bar"></div>
-    </div>
-
-    <p id="status" class="status">Initializing…</p>
-    <p style="color:#777; margin-top:25px;">Please wait…</p>
+<div class="box">
+<h2>Step 1: Human Verification</h2>
+<p>Scroll down and click Verify to continue to the next step.</p>
 </div>
+
+<div style="height: 300px;"></div>
+
+<button onclick="location.href='verify.html'">VERIFY</button>
 
 </body>
 </html>
